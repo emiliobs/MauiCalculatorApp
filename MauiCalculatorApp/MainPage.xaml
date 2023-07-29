@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCalculatorApp.MainPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="*, Auto">
+        <Border Grid.Row="0"
+                Padding="20" 
+                StrokeThickness="0" 
+                StrokeShape="RoundRectangle 0, 0, 25, 25">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#ea6c5d" Offset="0.1"></GradientStop>
+                    <GradientStop Color="#e95263" Offset="1.0"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+
+
+            <VerticalStackLayout Spacing="20">
+                <Label Text="GENDER" 
+                       TextColor="White" 
+                       HorizontalOptions="Center" 
+                       FontAttributes="Bold"></Label>
+
+                <Grid ColumnDefinitions="*, *">
+                    <Border Grid.Column="0"
+                            BackgroundColor="White"
+                            StrokeShape="RoundRectangle 25"
+                            Padding="20, 10">
+                        <HorizontalStackLayout 
+                            HorizontalOptions="Center" 
+                            Spacing="10">
+                            <Image Source="male" 
+                                   HeightRequest="20" 
+                                   WidthRequest="20">
+                                <Image.Behaviors>
+                                    
+                                </Image.Behaviors>
+                            </Image>
+                        <Label Text="Male" 
+                               FontAttributes="Bold" 
+                               TextColor="#e95263">                            
+                        </Label>
+                        </HorizontalStackLayout>
+                    </Border>
+                </Grid>
+                
+            </VerticalStackLayout>
+            
+        </Border>
+        
+        <VerticalStackLayout Grid.Row="1">
+            <Label Text="Test"></Label>
+        </VerticalStackLayout>
+    </Grid>
+    
+
+</ContentPage>
