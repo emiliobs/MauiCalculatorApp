@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="MauiCalculatorApp.MainPage"
              Shell.NavBarIsVisible="False">
 
@@ -23,11 +24,13 @@
                        HorizontalOptions="Center" 
                        FontAttributes="Bold"></Label>
 
-                <Grid ColumnDefinitions="*, *">
+                <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
+
                     <Border Grid.Column="0"
                             BackgroundColor="White"
                             StrokeShape="RoundRectangle 25"
-                            Padding="20, 10">
+                            Padding="20, 10"
+                            StrokeThickness="0">
                         <HorizontalStackLayout 
                             HorizontalOptions="Center" 
                             Spacing="10">
@@ -35,25 +38,81 @@
                                    HeightRequest="20" 
                                    WidthRequest="20">
                                 <Image.Behaviors>
-                                    
+                                    <toolkit:IconTintColorBehavior TintColor="#e95263" />
                                 </Image.Behaviors>
                             </Image>
-                        <Label Text="Male" 
+                            <Label Text="Male" 
                                FontAttributes="Bold" 
-                               TextColor="#e95263">                            
-                        </Label>
+                               TextColor="#e95263">
+                            </Label>
+                        </HorizontalStackLayout>
+                    </Border>
+
+                    <Border Grid.Column="1"
+          BackgroundColor="#f2a59e"
+          StrokeShape="RoundRectangle 25"
+          Padding="20, 10"
+                            StrokeThickness="0">
+                        <HorizontalStackLayout 
+          HorizontalOptions="Center" 
+          Spacing="10">
+                            <Image Source="female" 
+                 HeightRequest="20" 
+                 WidthRequest="20">
+                                <Image.Behaviors>
+                                    <toolkit:IconTintColorBehavior TintColor="White" />
+                                </Image.Behaviors>
+                            </Image>
+                            <Label Text="Female" 
+             FontAttributes="Bold" 
+             TextColor="White">
+                            </Label>
                         </HorizontalStackLayout>
                     </Border>
                 </Grid>
-                
+
+                <Label Text="HEIGHT"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       Margin="0, 20, 0, 0">
+                </Label>
+                <Border Grid.Column="1"
+                        BackgroundColor="#f2a59e"
+                        StrokeShape="RoundRectangle 25"
+                        Padding="20, 10"
+                        StrokeThickness="0"
+                        HorizontalOptions="Center">
+
+                    <Label Text="{Binding Source={x:Reference heightSlider}, 
+                        Path=Value, StringFormat='{0:F0} cm'}"
+         TextColor="White"
+         HorizontalOptions="Center"
+         FontAttributes="Bold">
+                    </Label>
+
+
+                </Border>
+              
+                <Slider x:Name="heightSlider" 
+                        ThumbColor="White" 
+                        MinimumTrackColor="Gray"
+                        MaximumTrackColor="White"
+                        Minimum="10"
+                        Maximum="500"
+                        Value="50">
+                </Slider>
+
+
+
             </VerticalStackLayout>
-            
+
         </Border>
-        
+
         <VerticalStackLayout Grid.Row="1">
             <Label Text="Test"></Label>
         </VerticalStackLayout>
     </Grid>
-    
+
 
 </ContentPage>
