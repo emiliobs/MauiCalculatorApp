@@ -137,11 +137,32 @@ FontAttributes="Bold">
                Value="50">
                 </Slider>
 
-
-
-            </VerticalStackLayout>
+             </VerticalStackLayout>
 
         </Border>
+
+        <ImageButton Grid.Row="1" 
+              Source="arrowright"
+              HeightRequest="150"
+              WidthRequest="150"
+              CornerRadius="55"
+              BackgroundColor="White"
+              Padding="20"
+              VerticalOptions="End"
+              HorizontalOptions="End"
+                     Margin="0, -75, 0, 0">
+            
+            <ImageButton.Shadow>
+                <Shadow Brush="#f2a59e"
+                        Radius="55"
+                        Offset="5, 5">                    
+                </Shadow>
+            </ImageButton.Shadow>
+            <ImageButton.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="#f2a59e" />
+            </ImageButton.Behaviors>
+                
+        </ImageButton>
 
         <VerticalStackLayout Grid.Row="1">
             <Label Text="Test"></Label>
