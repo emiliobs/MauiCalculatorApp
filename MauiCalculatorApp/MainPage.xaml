@@ -9,7 +9,7 @@
         <Border Grid.Row="0"
                 Padding="20" 
                 StrokeThickness="0" 
-                StrokeShape="RoundRectangle 0, 0, 25, 25">
+                StrokeShape="RoundRectangle 0, 0, 0, 0">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#ea6c5d" Offset="0.1"></GradientStop>
@@ -22,7 +22,9 @@
                 <Label Text="GENDER" 
                        TextColor="White" 
                        HorizontalOptions="Center" 
-                       FontAttributes="Bold"></Label>
+                       FontAttributes="Bold">
+
+                </Label>
 
                 <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
 
@@ -91,8 +93,6 @@
          HorizontalOptions="Center"
          FontAttributes="Bold">
                     </Label>
-
-
                 </Border>
 
                 <Slider x:Name="heightSlider" 
@@ -120,11 +120,10 @@
 
                     <Label Text="{Binding Source={x:Reference weightSlider}, 
                Path=Value, StringFormat='{0:F0} KG'}"
-TextColor="White"
-HorizontalOptions="Center"
-FontAttributes="Bold">
+            TextColor="White"
+            HorizontalOptions="Center"
+            FontAttributes="Bold">
                     </Label>
-
 
                 </Border>
 
@@ -137,37 +136,66 @@ FontAttributes="Bold">
                Value="50">
                 </Slider>
 
-             </VerticalStackLayout>
+            </VerticalStackLayout>
 
         </Border>
+        <Grid Grid.Row="1" Margin="0, -75, 0, 0">
 
-        <ImageButton Grid.Row="1" 
-              Source="arrowright"
-              HeightRequest="150"
-              WidthRequest="150"
-              CornerRadius="55"
-              BackgroundColor="White"
-              Padding="20"
-              VerticalOptions="End"
-              HorizontalOptions="End"
-                     Margin="0, -75, 0, 0">
+            <Border Grid.Row="1"
+         Padding="25"
+         StrokeShape="RoundRectangle 50, 50, 0, 0"
+         StrokeThickness="0"
+         BackgroundColor="White"
+         Margin="0, 0, 0, 0">
+
+                <Border.Shadow>
+                    <Shadow Brush="#f2a59e"
+                    Radius="100"
+                    Offset="-150, -150"/>
+                </Border.Shadow>
+            </Border>
+
+            <ImageButton Grid.Row="1" 
+                Source="arrowright"
+                HeightRequest="150"
+                WidthRequest="150"
+                CornerRadius="55"
+                BackgroundColor="White"
+                Padding="20"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                Margin="0, -75, 0, 150"
+                Pressed="CalculateBMI_Pressed">
+
+                <ImageButton.Shadow>
+                    <Shadow Brush="#f2a59e"
+          Radius="55"
+          Offset="5, 5"/>
+
+                </ImageButton.Shadow>
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="#f2a59e" />
+                </ImageButton.Behaviors>
+
+            </ImageButton>
+        </Grid>
+
+        <VerticalStackLayout Grid.Row="2" 
+                Padding="25"
+                Spacing="20">
             
-            <ImageButton.Shadow>
-                <Shadow Brush="#f2a59e"
-                        Radius="55"
-                        Offset="5, 5">                    
-                </Shadow>
-            </ImageButton.Shadow>
-            <ImageButton.Behaviors>
-                <toolkit:IconTintColorBehavior TintColor="#f2a59e" />
-            </ImageButton.Behaviors>
+            <Label  
+      Text="Body mass index, or BMI, is used to determine whether you are in a healthy weight range for your height."
+
+      TextColor="Black"/>
+            <Label 
+                FontSize="12"
+                Text="* This calculator should't be used for pregnent women or children."
+                FontAttributes="Italic"
+                TextColor="Black">
                 
-        </ImageButton>
-
-        <VerticalStackLayout Grid.Row="1">
-            <Label Text="Test"></Label>
+            </Label>
         </VerticalStackLayout>
+
     </Grid>
-
-
 </ContentPage>
