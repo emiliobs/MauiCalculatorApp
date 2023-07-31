@@ -17,7 +17,6 @@
                 </LinearGradientBrush>
             </Border.Background>
 
-
             <VerticalStackLayout Spacing="20">
                 <Label Text="GENDER" 
                        TextColor="White" 
@@ -36,9 +35,10 @@
                         <HorizontalStackLayout 
                             HorizontalOptions="Center" 
                             Spacing="10">
+                            
                             <Image Source="male" 
-                                   HeightRequest="20" 
-                                   WidthRequest="20">
+                                   HeightRequest="{OnPlatform 25, iOS= 25}" 
+                                   WidthRequest="{OnPlatform 25, iOS=25}">
                                 <Image.Behaviors>
                                     <toolkit:IconTintColorBehavior TintColor="#e95263" />
                                 </Image.Behaviors>
@@ -51,16 +51,16 @@
                     </Border>
 
                     <Border Grid.Column="1"
-          BackgroundColor="#f2a59e"
-          StrokeShape="RoundRectangle 25"
-          Padding="20, 10"
+                      BackgroundColor="#f2a59e"
+                      StrokeShape="RoundRectangle 25"
+                      Padding="20, 10"
                             StrokeThickness="0">
                         <HorizontalStackLayout 
-          HorizontalOptions="Center" 
-          Spacing="10">
+                              HorizontalOptions="Center" 
+                              Spacing="10">
                             <Image Source="female" 
-                 HeightRequest="20" 
-                 WidthRequest="20">
+                             HeightRequest="{OnPlatform 25, iOS= 25}" 
+                             WidthRequest="{OnPlatform 25, iOS= 25}">           
                                 <Image.Behaviors>
                                     <toolkit:IconTintColorBehavior TintColor="White" />
                                 </Image.Behaviors>
@@ -89,9 +89,10 @@
 
                     <Label Text="{Binding Source={x:Reference heightSlider}, 
                         Path=Value, StringFormat='{0:F0} CM'}"
-         TextColor="White"
-         HorizontalOptions="Center"
-         FontAttributes="Bold">
+                         TextColor="White"
+                         HorizontalOptions="Center"
+                         FontAttributes="Bold"
+                           Padding="5">
                     </Label>
                 </Border>
 
@@ -105,35 +106,36 @@
                 </Slider>
 
                 <Label Text="WEIGHT"
-              TextColor="White"
-              HorizontalOptions="Center"
-              FontAttributes="Bold"
-              Margin="0, 20, 0, 0">
+                  TextColor="White"
+                  HorizontalOptions="Center"
+                  FontAttributes="Bold"
+                  Margin="0, 20, 0, 0">
                 </Label>
 
                 <Border Grid.Column="1"
-               BackgroundColor="#f2a59e"
-               StrokeShape="RoundRectangle 25"
-               Padding="20, 10"
-               StrokeThickness="0"
-               HorizontalOptions="Center">
+                   BackgroundColor="#f2a59e"
+                   StrokeShape="RoundRectangle 25"
+                   Padding="20, 10"
+                   StrokeThickness="0"
+                   HorizontalOptions="Center">
 
                     <Label Text="{Binding Source={x:Reference weightSlider}, 
-               Path=Value, StringFormat='{0:F0} KG'}"
-            TextColor="White"
-            HorizontalOptions="Center"
-            FontAttributes="Bold">
+                            Path=Value, StringFormat='{0:F0} KG'}"
+                            TextColor="White"
+                            HorizontalOptions="Center"
+                            FontAttributes="Bold"
+                           Padding="5">
                     </Label>
 
                 </Border>
 
                 <Slider x:Name="weightSlider" 
-               ThumbColor="White" 
-               MinimumTrackColor="Gray"
-               MaximumTrackColor="White"
-               Minimum="10"
-               Maximum="150"
-               Value="50">
+                   ThumbColor="White" 
+                   MinimumTrackColor="Gray"
+                   MaximumTrackColor="White"
+                   Minimum="10"
+                   Maximum="150"
+                   Value="50">
                 </Slider>
 
             </VerticalStackLayout>
@@ -142,11 +144,11 @@
         <Grid Grid.Row="1" Margin="0, -75, 0, 0">
 
             <Border Grid.Row="1"
-         Padding="25"
-         StrokeShape="RoundRectangle 50, 50, 0, 0"
-         StrokeThickness="0"
-         BackgroundColor="White"
-         Margin="0, 0, 0, 0">
+             Padding="25"
+             StrokeShape="RoundRectangle 50, 50, 0, 0"
+             StrokeThickness="0"
+             BackgroundColor="White"
+             Margin="0, 0, 0, 0">
 
                 <Border.Shadow>
                     <Shadow Brush="#f2a59e"
@@ -157,20 +159,27 @@
 
             <ImageButton Grid.Row="1" 
                 Source="arrowright"
-                HeightRequest="150"
-                WidthRequest="150"
-                CornerRadius="55"
+                HeightRequest="{OnPlatform 150, iOS=120}"
+                WidthRequest="{OnPlatform 150, iOS=120}"
+                CornerRadius="{OnPlatform 55, iOS=60}"
                 BackgroundColor="White"
                 Padding="20"
                 VerticalOptions="End"
                 HorizontalOptions="End"
-                Margin="0, -75, 0, 150"
+               Margin="0, -75, 20, 150"
                 Pressed="CalculateBMI_Pressed">
+
+                <!--<ImageButton.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Default" Value="0, -75, 20, 150"></On>
+                        <On Platform="iOS" Value="0, -60, 20, 150"></On>
+                    </OnPlatform>
+                </ImageButton.Margin>-->
 
                 <ImageButton.Shadow>
                     <Shadow Brush="#f2a59e"
-          Radius="55"
-          Offset="5, 5"/>
+                      Radius="55"
+                      Offset="5, 5"/>       
 
                 </ImageButton.Shadow>
                 <ImageButton.Behaviors>
@@ -183,17 +192,17 @@
         <VerticalStackLayout Grid.Row="2" 
                 Padding="25"
                 Spacing="20">
-            
-            <Label  
-      Text="Body mass index, or BMI, is used to determine whether you are in a healthy weight range for your height."
 
-      TextColor="Black"/>
+            <Label  
+              Text="Body mass index, or BMI, is used to determine whether you are in a healthy weight range for your height."
+              TextColor="Black">                
+            </Label>
             <Label 
                 FontSize="12"
                 Text="* This calculator should't be used for pregnent women or children."
                 FontAttributes="Italic"
                 TextColor="Black">
-                
+
             </Label>
         </VerticalStackLayout>
 
