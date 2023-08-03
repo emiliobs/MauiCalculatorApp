@@ -7,8 +7,9 @@
 
     <ContentView.ControlTemplate>
         <ControlTemplate>
+            
             <Border Grid.Column="0"
-             BackgroundColor="White"
+             BackgroundColor="{Binding Source={x:Reference this}, Path=BackgroundColor}"
              StrokeShape="RoundRectangle 25"
              Padding="20, 10"
              StrokeThickness="0">       
@@ -29,7 +30,8 @@
                     </Label>
                 </HorizontalStackLayout>
             </Border>
-        </ControlTemplate>
+
+         </ControlTemplate>
     </ContentView.ControlTemplate>
 
 </ContentView>

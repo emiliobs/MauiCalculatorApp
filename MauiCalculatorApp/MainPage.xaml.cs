@@ -14,7 +14,7 @@
 
             var bmi = wightInKg / (heightInMeter * heightInMeter);
 
-
+            Shell.Current.DisplayAlert("BMI", $"Bmi is: {bmi} ", "ok");
         }
     }
 }
