@@ -1,5 +1,3 @@
-using Microsoft.Maui;
-
 namespace MauiCalculatorApp.Controls;
 
 public partial class BmiButtonControl : ContentView
@@ -8,9 +6,9 @@ public partial class BmiButtonControl : ContentView
         typeof(string), typeof(BmiButtonControl), string.Empty);
 
     public BmiButtonControl()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
 
     public string IconImageSource
     {
@@ -22,6 +20,6 @@ public partial class BmiButtonControl : ContentView
 
     private void Button_Pressed(object sender, EventArgs e)
     {
-        ButtoPressed?.Invoke(this, EventArgs.Empty);
+        ButtoPressed.Invoke(this, EventArgs.Empty);
     }
 }

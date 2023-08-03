@@ -39,26 +39,26 @@ public partial class GenderControl : ContentView
         set => SetValue(ColorProperty, value);
     }
 
-    public string BgColor 
-    { 
+    public string BgColor
+    {
         get => (string)GetValue(BgColorProperty);
-        set => SetValue(BgColorProperty, value); 
+        set => SetValue(BgColorProperty, value);
     }
 
     private Color _backgroundColor = Colors.White;
 
     private Color _tinColor = Colors.White;
-   
+
     public Color BackgroundColor
     {
         get { return _backgroundColor; }
-        set 
+        set
         {
             if (_backgroundColor != value)
             {
                 _backgroundColor = value;
                 OnPropertyChanged(nameof(BackgroundColor));
-            } 
+            }
         }
     }
 
