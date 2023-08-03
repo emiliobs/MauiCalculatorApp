@@ -2,10 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:controls="clr-namespace:MauiCalculatorApp.Controls"
              x:Class="MauiCalculatorApp.MainPage"
              Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="*, Auto">
+        
         <Border Grid.Row="0"
                 Padding="20" 
                 StrokeThickness="0" 
@@ -15,7 +17,8 @@
                     <GradientStop Color="#ea6c5d" Offset="0.1"></GradientStop>
                     <GradientStop Color="#e95263" Offset="1.0"></GradientStop>
                 </LinearGradientBrush>
-            </Border.Background>
+                
+            </Border.Background>           
 
             <VerticalStackLayout Spacing="20">
                 <Label Text="GENDER" 
@@ -27,7 +30,7 @@
 
                 <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
 
-                    <Border Grid.Column="0"
+                    <!--<Border Grid.Column="0"
                             BackgroundColor="White"
                             StrokeShape="RoundRectangle 25"
                             Padding="20, 10"
@@ -48,12 +51,14 @@
                                TextColor="#e95263">
                             </Label>
                         </HorizontalStackLayout>
-                    </Border>
+                    </Border>-->
+
+                    <controls:GenderControl Grid.Column="0" IconImageSource="male" Text="Male" Color="#e95263"></controls:GenderControl>
 
                     <Border Grid.Column="1"
-                      BackgroundColor="#f2a59e"
-                      StrokeShape="RoundRectangle 25"
-                      Padding="20, 10"
+                          BackgroundColor="#f2a59e"
+                          StrokeShape="RoundRectangle 25"
+                          Padding="20, 10"
                             StrokeThickness="0">
                         <HorizontalStackLayout 
                               HorizontalOptions="Center" 
@@ -66,8 +71,8 @@
                                 </Image.Behaviors>
                             </Image>
                             <Label Text="Female" 
-             FontAttributes="Bold" 
-             TextColor="White">
+                                 FontAttributes="Bold" 
+                                 TextColor="White"> 
                             </Label>
                         </HorizontalStackLayout>
                     </Border>
@@ -141,8 +146,8 @@
             </VerticalStackLayout>
 
         </Border>
+        
         <Grid Grid.Row="1" Margin="0, -75, 0, 0">
-
             <Border Grid.Row="1"
              Padding="25"
              StrokeShape="RoundRectangle 50, 50, 0, 0"

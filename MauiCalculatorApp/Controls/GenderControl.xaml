@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MauiCalculatorApp.Controls.GenderControl"
+             x:Name="this">
+
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <Border Grid.Column="0"
+             BackgroundColor="White"
+             StrokeShape="RoundRectangle 25"
+             Padding="20, 10"
+             StrokeThickness="0">       
+                <HorizontalStackLayout 
+                 HorizontalOptions="Center" 
+                 Spacing="10">
+
+                    <Image Source="{TemplateBinding IconImageSource }" 
+                    HeightRequest="{OnPlatform 25, iOS= 25}" 
+                    WidthRequest="{OnPlatform 25, iOS=25}"> 
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{Binding Source={x:Reference this}, Path=TinColor}" />
+                        </Image.Behaviors>
+                    </Image>
+                    <Label Text="{TemplateBinding Text}" 
+                        FontAttributes="Bold" 
+                        TextColor="{Binding Source={x:Reference this}, Path=TinColor}">    
+                    </Label>
+                </HorizontalStackLayout>
+            </Border>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+
+</ContentView>
